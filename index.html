@@ -2,9 +2,10 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8">
+    <!-- Вот та самая строчка, про которую ты вспомнил -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Портфолио Александра Новицкого</title>
 
-    <!-- Встроенные стили -->
     <style>
       /* Базовые настройки страницы */
       body {
@@ -45,8 +46,8 @@
 
       /* Основной контент */
       main {
-        max-width: 700px;
-        margin: 40px auto;
+        max-width: 700px;          /* На ПК — не шире 700px */
+        margin: 40px auto;         /* По центру */
         padding: 20px;
         background: #ffffff;
         border-radius: 12px;
@@ -70,11 +71,11 @@
       /* Фото */
       img {
         display: block;
-        margin: 20px auto; /* центрируем фото */
-        max-width: 100%;
-        height: auto;
+        margin: 20px auto;
+        max-width: 100%;       /* Самое важное для адаптивности */
+        height: auto;           /* Сохраняет пропорции */
         border-radius: 12px;
-        box-shadow: 0 6px 150px rgba(0,0,0,0.12);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.12);
         border: 1px solid #e0e0e0;
       }
 
@@ -86,11 +87,29 @@
         font-size: 0.95rem;
         margin-top: 40px;
       }
+
+      /* АДАПТИВНОСТЬ: если экран уже 600px — меняем отступы и размеры */
+      @media (max-width: 600px) {
+        header h1 {
+          font-size: 1.8rem;     /* Чуть меньше заголовок */
+        }
+
+        main {
+          margin: 20px 10px;     /* Меньше отступы по бокам */
+          padding: 15px;         /* Чуть меньше внутренние отступы */
+          max-width: 100%;       /* На телефоне — на всю ширину */
+        }
+
+        nav a {
+          display: block;        /* Ссылки друг под другом */
+          margin: 8px 0;
+          text-align: center;
+        }
+      }
     </style>
   </head>
   <body>
     
-    <!-- Шапка сайта -->
     <header>
       <h1>Привет, я Александр!</h1>
       
@@ -100,25 +119,20 @@
       </nav>
     </header>
 
-    <!-- Основной контент -->
     <main>
-      <!-- Секция "Обо мне" -->
       <section id="about">
         <h2>Обо мне</h2>
         <p>Начинающий фронтенд-разработчик. Изучаю HTML, CSS и JavaScript. Люблю чистый код и понятную структуру.</p>
         
-        <!-- Твоё фото -->
         <img src="foto.jpg" alt="Фото Александра Новицкого">
       </section>
 
-      <!-- Секция "Проекты" -->
       <section id="projects">
         <h2>Мои проекты</h2>
         <p>Пока тут только этот лендинг, но скоро будут и другие!</p>
       </section>
     </main>
 
-    <!-- Подвал -->
     <footer>
       <p>&copy; 2024 Портфолио Александра Новицкого</p>
     </footer>
