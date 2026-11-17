@@ -1,0 +1,99 @@
+/* Базовые настройки страницы */
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f5f7fa;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Шапка сайта */
+      header {
+        background-color: #ffffff;
+        padding: 40px 20px;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      }
+
+      header h1 {
+        margin: 0 0 15px 0;
+        font-size: 2.2rem;
+        color: #2c3e50;
+      }
+
+      nav {
+        font-size: 1.1rem;
+      }
+
+      nav a {
+        color: #3498db;
+        text-decoration: none;
+        margin: 0 8px;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      /* Основной контент */
+      main {
+        max-width: 700px;          /* На ПК — не шире 700px */
+        margin: 40px auto;         /* По центру */
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      }
+
+      section {
+        margin-bottom: 40px;
+      }
+
+      section h2 {
+        border-bottom: 2px solid #eee;
+        padding-bottom: 8px;
+        color: #2980b9;
+      }
+
+      p {
+        line-height: 1.6;
+      }
+
+      /* Фото */
+      img {
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;       /* Самое важное для адаптивности */
+        height: auto;           /* Сохраняет пропорции */
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+        border: 1px solid #e0e0e0;
+      }
+
+      /* Подвал */
+      footer {
+        text-align: center;
+        padding: 20px;
+        color: #7f8c8d;
+        font-size: 0.95rem;
+        margin-top: 40px;
+      }
+
+      /* АДАПТИВНОСТЬ: если экран уже 600px — меняем отступы и размеры */
+      @media (max-width: 600px) {
+        header h1 {
+          font-size: 1.8rem;     /* Чуть меньше заголовок */
+        }
+
+        main {
+          margin: 20px 10px;     /* Меньше отступы по бокам */
+          padding: 15px;         /* Чуть меньше внутренние отступы */
+          max-width: 100%;       /* На телефоне — на всю ширину */
+        }
+
+        nav a {
+          display: block;        /* Ссылки друг под другом */
+          margin: 8px 0;
+          text-align: center;
+        }
+      }
