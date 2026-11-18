@@ -135,3 +135,28 @@ form button:hover {
     width: 100%;
   }
 }
+
+/* Контейнер для колонок */
+.main-content {
+  display: flex;
+  flex-wrap: wrap; /* разрешает перенос, если места мало */
+  gap: 40px;       /* расстояние между колонками */
+  margin-bottom: 60px; /* отступ до формы, чтобы не слипалось */
+}
+
+/* На больших экранах: обе секции занимают примерно поровну */
+@media (min-width: 768px) {
+  .main-content {
+    justify-content: space-between;
+  }
+
+  #about,
+  #projects {
+    flex: 1;           /* растягиваются, занимая свободное место */
+    min-width: 300px;  /* минимальная ширина, чтобы не сжимались в кашу */
+  }
+
+  #about + #projects {
+    margin-left: 30px; /* небольшой отступ слева у второй колонки */
+  }
+}
