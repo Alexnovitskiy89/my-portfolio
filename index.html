@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Портфолио Александра Новицкого</title>
     <link rel="stylesheet" href="style.css">
-    </head>
+  </head>
   <body>
     
     <header>
@@ -30,6 +30,25 @@
         <h2>Мои проекты</h2>
         <p>Пока тут только этот лендинг, но скоро будут и другие!</p>
       </section>
+            <!-- Секция "Связаться со мной" -->
+      <section id="contact">
+        <h2>Связаться со мной</h2>
+        <p>Есть предложение, вопрос или хотите обсудить проект? Напишите мне — отвечу в ближайшее время.</p>
+
+        <form action="#" method="post">
+            <label for="name" style="display: block; margin-bottom: 5px; font-weight: 500;">Ваше имя</label>
+            <input type="text" id="name" name="name" placeholder="Александр" required >         
+        
+            <label for="email" style="display: block; margin-bottom: 5px; font-weight: 500;">Ваш e-mail</label>
+            <input type="email" id="email" name="email" placeholder="example@mail.com" required >        
+          
+            <label for="message" style="display: block; margin-bottom: 5px; font-weight: 500;">Сообщение</label>
+            <textarea id="message" name="message" rows="5" placeholder="Расскажите, что интересует..." required ></textarea>
+          
+            <button type="submit">Отправить</button>
+        </form>
+      </section>
+
     </main>
 
     <footer>
