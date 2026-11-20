@@ -10,24 +10,27 @@
   <body>
     
     <header class="site-header">
-      <div class="container header-inner">
-       <a href="#" class="logo">Alex Novitskiy</a>
-    
-       <button class="mobile-toggle" aria-label="Открыть меню">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+  <div class="container header-inner">
+    <a href="#" class="logo">Alex Novitskiy</a>
 
-        <nav class="main-nav">
-          <ul class="nav-list">
-            <li><a href="#about">Обо мне</a></li>
-            <li><a href="#projects">Проекты</a></li>
-            <li><a href="#contact">Контакты</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <!-- Скрытый чекбокс для управления меню -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+    <label for="nav-toggle" class="mobile-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <nav class="main-nav" id="main-navigation">
+      <ul class="nav-list">
+        <li><a href="#about">Обо мне</a></li>
+        <li><a href="#projects">Проекты</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 
 
     <main>

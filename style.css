@@ -1,77 +1,68 @@
-/* Базовые настройки страницы */
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: #f5f7fa;
-        color: #333;
-        margin: 0;
-        padding: 0;
-      }
+/* ============================================================
+   ПОРТФОЛИО — основной файл стилей
+   Структура:
+   1. Базовые настройки
+   2. Основной контент
+   3. Фото
+   4. Форма
+   5. Колонки (Обо мне / Проекты)
+   6. Шапка (десктоп)
+   7. Шапка и мобильное меню (до 768px)
+   ============================================================ */
 
-    
-      /* Основной контент */
-      main {
-        max-width: 700px;          /* На ПК — не шире 700px */
-        margin: 40px auto;         /* По центру */
-        padding: 20px;
-        background: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      }
+/* ============================================================
+   1. БАЗОВЫЕ НАСТРОЙКИ СТРАНИЦЫ
+   ============================================================ */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
 
-      section {
-        margin-bottom: 40px;
-      }
+/* ============================================================
+   2. ОСНОВНОЙ КОНТЕНТ
+   ============================================================ */
+main {
+  max-width: 700px;          /* На ПК — не шире 700px */
+  margin: 40px auto;         /* По центру */
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
 
-      section h2 {
-        border-bottom: 2px solid #eee;
-        padding-bottom: 8px;
-        color: #2980b9;
-      }
+section {
+  margin-bottom: 40px;
+}
 
-      p {
-        line-height: 1.6;
-      }
+section h2 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+  color: #2980b9;
+}
 
-      /* Фото */
-      img {
-        display: block;
-        margin: 20px auto;
-        max-width: 100%;       /* Самое важное для адаптивности */
-        height: auto;           /* Сохраняет пропорции */
-        border-radius: 12px;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-        border: 1px solid #e0e0e0;
-      }
+p {
+  line-height: 1.6;
+}
 
-      /* Подвал */
-      footer {
-        text-align: center;
-        padding: 20px;
-        color: #7f8c8d;
-        font-size: 0.95rem;
-        margin-top: 40px;
-      }
+/* ============================================================
+   3. ФОТО
+   ============================================================ */
+img {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;           /* Самое важное для адаптивности */
+  height: auto;              /* Сохраняет пропорции */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e0e0e0;
+}
 
-      /* АДАПТИВНОСТЬ: если экран уже 600px — меняем отступы и размеры */
-      @media (max-width: 600px) {
-        header h1 {
-          font-size: 1.8rem;     /* Чуть меньше заголовок */
-        }
-
-        main {
-          margin: 20px 10px;     /* Меньше отступы по бокам */
-          padding: 15px;         /* Чуть меньше внутренние отступы */
-          max-width: 100%;       /* На телефоне — на всю ширину */
-        }
-
-        nav a {
-          display: block;        /* Ссылки друг под другом */
-          margin: 8px 0;
-          text-align: center;
-        }
-      }
-
-      /* Стили для формы */
+/* ============================================================
+   4. ФОРМА
+   ============================================================ */
 form {
   display: flex;
   flex-direction: column;
@@ -84,7 +75,7 @@ form textarea {
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
-  box-sizing: border-box; /* чтобы padding не ломал ширину */
+  box-sizing: border-box;    /* Чтобы padding не ломал ширину */
 }
 
 form button {
@@ -102,21 +93,34 @@ form button:hover {
   background-color: #2980b9;
 }
 
-/* Адаптивность для формы на мобильных */
+/* Сообщение об ошибке валидации (a11y: role="alert") */
+.form-error {
+  display: none;
+  color: #d32f2f;
+  font-size: 0.875rem;
+}
+
+/* Состояние невалидного поля */
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: #d32f2f;
+}
+
 @media (max-width: 600px) {
   form button {
     width: 100%;
   }
 }
 
-/* Контейнер для колонок */
+/* ============================================================
+   5. КОЛОНКИ: ОБО МНЕ / ПРОЕКТЫ
+   ============================================================ */
 .main-content {
   display: flex;
-  flex-wrap: wrap; /* разрешает перенос, если места мало */
-  gap: 40px;       /* расстояние между колонками */
+  flex-wrap: wrap;           /* Разрешает перенос, если места мало */
+  gap: 40px;                 /* Расстояние между колонками */
 }
 
-/* На больших экранах: обе секции занимают примерно поровну */
 @media (min-width: 768px) {
   .main-content {
     justify-content: space-between;
@@ -124,22 +128,25 @@ form button:hover {
 
   #about,
   #projects {
-    flex: 1;           /* растягиваются, занимая свободное место */
-    min-width: 300px;  /* минимальная ширина, чтобы не сжимались в кашу */
+    flex: 1;                 /* Растягиваются, занимая свободное место */
+    min-width: 300px;        /* Минимальная ширина, чтобы не сжимались */
   }
 
   #about + #projects {
-    margin-left: 30px; /* небольшой отступ слева у второй колонки */
+    margin-left: 30px;       /* Небольшой отступ слева у второй колонки */
   }
 }
 
+/* ============================================================
+   6. ШАПКА (ДЕСКТОП)
+   ============================================================ */
 .site-header {
   background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid #e0e0e0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid #e0e0e0;
 }
 
 .header-inner {
@@ -169,24 +176,64 @@ form button:hover {
 .main-nav .nav-list a {
   color: #333;
   text-decoration: none;
-  transition: color 0.2s;
+  position: relative;
+}
+
+/* Подчёркивание при наведении */
+.main-nav .nav-list a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.main-nav .nav-list a:hover::after {
+  width: 100%;
 }
 
 .main-nav .nav-list a:hover {
   color: #007bff;
 }
 
-/* Мобильная версия: скрываем список, показываем бургер */
-@media (max-width: 768px) {
-  .main-nav .nav-list {
-    display: none; /* Пока без JS — просто скрываем, чтобы не ломать верстку */
-    flex-direction: column;
-    width: 100%;
-    margin-top: 1rem;
-    border-top: 1px solid #eee;
-    padding-top: 1rem;
-  }
+/* Плавные переходы для интерактивных элементов шапки */
+.site-header a,
+.mobile-toggle {
+  transition: color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
 
+.logo:hover {
+  color: #007bff;
+  transform: translateX(4px);
+}
+
+/* Бургер скрыт на десктопе */
+.mobile-toggle {
+  display: none;
+}
+
+/* Сам чекбокс всегда невидим — им управляет label */
+.nav-toggle-checkbox {
+  display: none;
+}
+
+/* Подвал */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #7f8c8d;
+  font-size: 0.95rem;
+  margin-top: 40px;
+}
+
+/* ============================================================
+   7. МОБИЛЬНАЯ ВЕРСИЯ (до 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Кнопка-бургер */
   .mobile-toggle {
     display: block;
     background: none;
@@ -198,40 +245,93 @@ form button:hover {
   .mobile-toggle span {
     display: block;
     width: 24px;
-    height: 2px;
+    height: 3px;
     background-color: #333;
-    margin: 4px 0;
+    margin: 6px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Панель меню: фиксируем поверх контента */
+  .main-nav {
+    position: fixed;
+    top: 60px;                       /* Высота шапки + отступ */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);      /* Всё оставшееся место */
+    background-color: #ffffff;
+    overflow-y: auto;
+    transform: translateX(100%);     /* Сдвинута вправо, за экран */
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+    padding-top: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Чекбокс активен -> панель выезжает на экран */
+  .nav-toggle-checkbox:checked ~ .main-nav {
+    transform: translateX(0);
+  }
+
+  /* Список ссылок: вертикальный, крупный, всё задано явно */
+  .main-nav .nav-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    gap: 0;
+  }
+
+  .main-nav .nav-list li {
+    margin: 1rem 0;
+  }
+
+  .main-nav .nav-list a {
+    display: block;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+
+  /* Отключаем декоративное подчёркивание из десктопной версии */
+  .main-nav .nav-list a::after {
+    display: none;
+  }
+
+  .main-nav .nav-list a:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Бургер -> крестик */
+  .nav-toggle-checkbox:checked ~ .mobile-toggle span:nth-child(1) {
+    transform: rotate(45deg) translate(2px, 6px);
+  }
+
+  .nav-toggle-checkbox:checked ~ .mobile-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle-checkbox:checked ~ .mobile-toggle span:nth-child(3) {
+    transform: rotate(-45deg) translate(2px, -6px);
   }
 }
 
-/* Плавные переходы для всех интерактивных элементов шапки */
-.site-header a,
-.mobile-toggle {
-  transition: color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
-}
+/* ============================================================
+   8. УЗКИЕ ЭКРАНЫ (до 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;       /* Чуть меньше заголовок */
+  }
 
-/* Акцент на активной ссылке (чтобы было видно, где ты сейчас) */
-.main-nav .nav-list a {
-  position: relative;
-}
-
-.main-nav .nav-list a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: #007bff; /* Цвет подчёркивания */
-  transition: width 0.3s ease;
-}
-
-.main-nav .nav-list a:hover::after {
-  width: 100%;
-}
-
-/* Эффект при наведении на логотип */
-.logo:hover {
-  color: #007bff;
-  transform: translateX(4px);
+  main {
+    margin: 20px 10px;       /* Меньше отступы по бокам */
+    padding: 15px;           /* Чуть меньше внутренние отступы */
+    max-width: 100%;         /* На телефоне — на всю ширину */
+  }
 }
