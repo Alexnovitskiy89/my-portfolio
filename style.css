@@ -137,6 +137,49 @@ textarea[aria-invalid="true"] {
   }
 }
 
+/* Таблица навыков */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+thead th {
+  color: #2980b9;
+  border-bottom: 2px solid #2980b9;
+}
+
+tbody tr:hover {
+  background-color: #f5f7fa;
+}
+
+@media (max-width: 600px) {
+  table, thead, tbody, tr, td, th {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 12px;
+    border-bottom: 2px solid #eee;
+  }
+
+  tbody th {
+    font-size: 1.05rem;
+  }
+}
+
+
+
 /* ============================================================
    6. ШАПКА (ДЕСКТОП)
    ============================================================ */
@@ -306,7 +349,7 @@ footer {
   .main-nav .nav-list a:hover {
     background-color: #f0f0f0;
   }
-
+}
   /* Бургер -> крестик */
 .nav-toggle-checkbox:checked ~ .mobile-toggle span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
