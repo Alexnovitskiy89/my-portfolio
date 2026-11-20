@@ -7,34 +7,7 @@
         padding: 0;
       }
 
-      /* Шапка сайта */
-      header {
-        background-color: #ffffff;
-        padding: 40px 20px;
-        text-align: center;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      }
-
-      header h1 {
-        margin: 0 0 15px 0;
-        font-size: 2.2rem;
-        color: #2c3e50;
-      }
-
-      nav {
-        font-size: 1.1rem;
-      }
-
-      nav a {
-        color: #3498db;
-        text-decoration: none;
-        margin: 0 8px;
-      }
-
-      nav a:hover {
-        text-decoration: underline;
-      }
-
+    
       /* Основной контент */
       main {
         max-width: 700px;          /* На ПК — не шире 700px */
@@ -158,4 +131,107 @@ form button:hover {
   #about + #projects {
     margin-left: 30px; /* небольшой отступ слева у второй колонки */
   }
+}
+
+.site-header {
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); 
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.main-nav .nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.main-nav .nav-list a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.main-nav .nav-list a:hover {
+  color: #007bff;
+}
+
+/* Мобильная версия: скрываем список, показываем бургер */
+@media (max-width: 768px) {
+  .main-nav .nav-list {
+    display: none; /* Пока без JS — просто скрываем, чтобы не ломать верстку */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+  }
+
+  .mobile-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #333;
+    margin: 4px 0;
+  }
+}
+
+/* Плавные переходы для всех интерактивных элементов шапки */
+.site-header a,
+.mobile-toggle {
+  transition: color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Акцент на активной ссылке (чтобы было видно, где ты сейчас) */
+.main-nav .nav-list a {
+  position: relative;
+}
+
+.main-nav .nav-list a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #007bff; /* Цвет подчёркивания */
+  transition: width 0.3s ease;
+}
+
+.main-nav .nav-list a:hover::after {
+  width: 100%;
+}
+
+/* Эффект при наведении на логотип */
+.logo:hover {
+  color: #007bff;
+  transform: translateX(4px);
 }
