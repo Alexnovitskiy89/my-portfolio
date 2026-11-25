@@ -238,6 +238,88 @@ td[data-label]::before {
   }
 }
 
+/* ============================================================
+   5.1. СЕТКА ПРОЕКТОВ И КАРТОЧКИ
+   ============================================================ */
+.projects-grid {
+  display: grid;
+  /* Автоматически подстраивается: сколько влезает 280px+ — столько колонок */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 1rem;
+}
+
+.project-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Заглушка картинки */
+.card-image {
+  height: 120px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+.project-card h3 {
+  margin: 0 0 8px;
+}
+
+.project-card p {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+}
+
+/* Теги */
+.card-tags {
+  display: flex;
+  gap: 8px;
+  margin-top: auto; /* прижимает теги к низу карточки */
+  flex-wrap: wrap;
+}
+
+.card-tags span {
+  background-color: #f0f2f5;
+  color: #555;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* Кнопка */
+.btn-secondary {
+  margin-top: 16px;
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #3498db;
+  color: #3498db;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: #3498db;
+  color: white;
+}
 
 
 /* ============================================================
